@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TestTokbox</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="panel-body">
+        <div class="row">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+
+        <div class="row">
+          <% if current_user %>
+            <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-lg btn-success" %>
+          <% else %>
+            <%= link_to "Signin", new_user_session_path, :class => "btn btn-lg btn-success" %>
+          <% end %>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>
